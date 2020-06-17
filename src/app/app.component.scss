@@ -1,0 +1,8 @@
+@import './styles/layout';
+
+:host {
+  @include v_container;
+  h1 {
+    font-family: 'Pacifico', cursive;
+  }
+}

@@ -1,8 +1,8 @@
-import { EmojiNumbersPipe } from './emoji-numbers.pipe';
+import { EmojiParserPipe } from './emoji-parser.pipe';
 
 describe('EmojiNumbersPipe', () => {
   it('create an instance', () => {
-    const pipe = new EmojiNumbersPipe();
+    const pipe = new EmojiParserPipe();
     expect(pipe).toBeTruthy();
   });
 });
