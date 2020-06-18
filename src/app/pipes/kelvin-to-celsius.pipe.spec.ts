@@ -5,4 +5,9 @@ describe('KelvinToCelsiusPipe', () => {
     const pipe = new KelvinToCelsiusPipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('should return 30 degrees', () => {
+    const p = new KelvinToCelsiusPipe();
+    expect(p.transform(303.15)).toBe(30);
+  });
 });

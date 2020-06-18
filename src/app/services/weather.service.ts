@@ -15,6 +15,15 @@ export class WeatherService {
     private readonly http: HttpClient,
   ) {}
 
+  private mapData = (response) => {
+    return {
+      name: response.name,
+      country: response.sys.country,
+      temperature: response.main.temp,
+      weather: response.weather[0].main,
+    };
+  };
+
   public getCityByName(name: string): Observable<CityWeather> {
     const options = {
       params: new HttpParams()
@@ -23,15 +32,6 @@ export class WeatherService {
     };
     return this.http
       .get<GetByCityNameResponse>(this.settings.baseUrl, options)
-      .pipe(
-        map((response) => {
-          return {
-            name: response.name,
-            country: response.sys.country,
-            temperature: response.main.temp,
-            weather: response.weather[0].main,
-          };
-        }),
-      );
+      .pipe(map(this.mapData));
   }
 }
